@@ -1,0 +1,45 @@
+name: Bug report
+description: Report a theme rendering or interaction problem.
+body:
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Obsidian version, ink version and operating system.
+    validations:
+      required: true
+  - type: dropdown
+    id: colour
+    attributes:
+      label: Appearance
+      options:
+        - Light
+        - Dark
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: view
+    attributes:
+      label: View
+      options:
+        - Reading view
+        - Live Preview
+        - Source mode
+        - Settings or menus
+        - Canvas or Bases
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Include a small note or diagram, steps, expected result and actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot and relevant plugins
+      description: Attach a real Obsidian screenshot. List relevant plugins, CSS snippets and font overrides.

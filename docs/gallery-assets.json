@@ -1,0 +1,47 @@
+{
+  "themeSourceVersion": "1.3.8",
+  "realAppScreenshots": 2,
+  "designReferences": 0,
+  "generatedImages": 0,
+  "exactCurrentThemeVersionCapturesVerified": 0,
+  "assets": [
+    {
+      "file": "screenshots/dark-settings.png",
+      "type": "real-app-screenshot",
+      "title": "Dark settings and dropdown / 深色设置与下拉",
+      "modes": [
+        "dark"
+      ],
+      "source": "User-provided original Obsidian screenshot",
+      "originalFilename": "codex-clipboard-e4b766df-7a1f-427b-8639-10da0468517c.png",
+      "sha256": "f7c83b2725838b98455afe7b1b663940fd46f2ee0aebf6e518bf2575403effd9",
+      "dimensions": [
+        1800,
+        1400
+      ],
+      "versionStatus": "New user-provided capture; ink is selected, exact installed theme version not verified",
+      "appVersionVisible": "1.13.7",
+      "themeVersionVerified": false,
+      "altered": false
+    },
+    {
+      "file": "screenshots/dark-reading.png",
+      "type": "real-app-screenshot",
+      "title": "Dark English reading / 深色英文阅读",
+      "modes": [
+        "dark"
+      ],
+      "source": "User-provided original Obsidian screenshot",
+      "originalFilename": "codex-clipboard-14d19c67-c0ee-4905-b29d-2cf309ae7ac3.png",
+      "sha256": "aac437554dfc6b17a5c9248b9c2e631809e4ff99d2722937a9300ff49bab2a40",
+      "dimensions": [
+        1844,
+        1784
+      ],
+      "versionStatus": "Earlier user-provided capture, before 1.3.8; exact installed theme version not verified",
+      "appVersionVisible": null,
+      "themeVersionVerified": false,
+      "altered": false
+    }
+  ]
+}

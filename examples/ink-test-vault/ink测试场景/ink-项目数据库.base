@@ -1,0 +1,84 @@
+filters:
+  and:
+  - file.hasTag("ink-sample-db")
+  - file.ext == "md"
+formulas:
+  remaining: estimate - spent
+  progress_text: (progress * 100).toFixed(0) + "%"
+properties:
+  file.name:
+    displayName: 项目
+  note.status:
+    displayName: 状态
+  note.priority:
+    displayName: 优先级
+  note.owner:
+    displayName: 负责人
+  note.due:
+    displayName: 日期
+  note.estimate:
+    displayName: 估算工时
+  note.spent:
+    displayName: 已用工时
+  note.done:
+    displayName: 完成
+  formula.remaining:
+    displayName: 剩余工时
+  formula.progress_text:
+    displayName: 进度
+views:
+- type: table
+  name: 总表
+  order:
+  - file.name
+  - note.status
+  - note.priority
+  - note.owner
+  - note.due
+  - note.estimate
+  - note.spent
+  - formula.remaining
+  - formula.progress_text
+  - note.done
+  summaries:
+    note.estimate: Sum
+    note.spent: Sum
+    formula.remaining: Sum
+- type: table
+  name: 按状态分组
+  groupBy:
+    property: note.status
+    direction: ASC
+  order:
+  - file.name
+  - note.owner
+  - note.due
+  - formula.remaining
+  - note.done
+- type: cards
+  name: 卡片
+  cardSize: 240
+  order:
+  - file.name
+  - note.status
+  - note.owner
+  - note.due
+  - formula.progress_text
+- type: table
+  name: 未完成
+  filters:
+    and:
+    - note.done == false
+  order:
+  - file.name
+  - note.status
+  - note.due
+  - note.done
+- type: table
+  name: 故意空集
+  filters:
+    and:
+    - note.status == "故意不存在的状态"
+  order:
+  - file.name
+  - note.status

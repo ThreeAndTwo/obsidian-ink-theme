@@ -1,0 +1,27 @@
+{
+  "name": "obsidian-ink-theme",
+  "version": "1.3.8",
+  "private": true,
+  "description": "A warm paper-inspired Obsidian theme by ThreeAndTwo.",
+  "license": "MIT",
+  "author": {
+    "name": "ThreeAndTwo",
+    "url": "https://github.com/ThreeAndTwo"
+  },
+  "homepage": "https://github.com/ThreeAndTwo/obsidian-ink-theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThreeAndTwo/obsidian-ink-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThreeAndTwo/obsidian-ink-theme/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.cjs",
+    "check": "node scripts/check.cjs",
+    "package": "python3 scripts/package.py"
+  }
+}

@@ -1,0 +1,445 @@
+/* Native Canvas and Graph. No positioning overrides or hit-target changes. */
+.canvas-node-container { border-radius: 6px; }
+.canvas-node:not(.canvas-node-group) .canvas-node-container {
+  background-color: var(--pi-surface);
+  border-color: var(--pi-control-border);
+}
+.canvas-node:not(.canvas-node-group).is-themed .canvas-node-container {
+  background-color: var(--pi-surface);
+  border-color: var(--canvas-color);
+  box-shadow: inset 0 3px 0 var(--canvas-color);
+}
+.canvas-node:not(.canvas-node-group).is-selected .canvas-node-container,
+.canvas-node:not(.canvas-node-group).is-focused .canvas-node-container {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+.canvas-node:not(.canvas-node-group).is-themed .canvas-node-content {
+  background-color: transparent;
+}
+.canvas-node .markdown-preview-view,
+.canvas-node .markdown-source-view {
+  --font-text: var(--font-interface);
+  --font-text-size: 18px;
+  --line-height-normal: 1.5;
+  --h1-font: var(--font-interface);
+  --h2-font: var(--font-interface);
+  --h3-font: var(--font-interface);
+  --h1-size: 1.25em;
+  --h2-size: 1.1em;
+  --h3-size: 1em;
+}
+.canvas-node-label,
+.canvas-group-label { font-family: var(--font-interface); }
+.canvas-controls-group,
+.canvas-card-menu {
+  background-color: var(--pi-raised);
+  border-color: var(--pi-control-border);
+}
+.graph-view {
+  background-color: var(--pi-paper);
+  font-family: var(--font-interface);
+  --font-text: var(--font-interface);
+  --font-text-size: 16px;
+}
+.graph-controls { background-color: var(--pi-raised); border-color: var(--pi-rule); }
+
+/* Mermaid 11.13.0 (Obsidian 1.13.7). Shape and label paint are separate.
+ * Match the Mermaid container itself: note views, embeds, hover previews and
+ * plugin-rendered Markdown do not all have the same outer view class.
+ * The ID guard deliberately gives important declarations an ID specificity
+ * floor against Mermaid's generated #diagram-id rules, without @layer.
+ * #ink-original-diagram is also an explicit container opt-out. The existing
+ * paper-original-diagrams note opt-out remains supported.
+ * Authored inline !important still wins. No SVG dimensions/transforms change.
+ */
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) {
+  overflow-x: auto;
+  max-width: 100%;
+  padding-block: 8px;
+  --pi-diagram-ink: var(--pi-body);
+  --pi-diagram-edge: var(--pi-control-border);
+  --pi-series-1: var(--color-accent);
+  --pi-series-2: var(--pi-blue);
+  --pi-series-3: var(--pi-green);
+  --pi-series-4: var(--pi-gold);
+  --pi-series-5: var(--pi-purple);
+  --pi-series-6: var(--pi-orange);
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) > svg {
+  filter: none !important;
+  font-family: var(--font-mermaid) !important;
+  color: var(--pi-diagram-ink) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(text, tspan) {
+  font-family: var(--font-mermaid) !important;
+  fill: var(--pi-diagram-ink) !important;
+  color: var(--pi-diagram-ink) !important;
+  stroke: none !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.nodeLabel, .cluster-label, .edgeLabel, .labelText, .messageText, .loopText, .noteText, foreignObject :is(div, span, p):not(.katex, .katex *)) {
+  font-family: var(--font-mermaid) !important;
+  color: var(--pi-diagram-ink) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.node rect, .node > circle, .node > ellipse, .node > polygon, .node > path, .node .label-container, .node .label-container > path, .node path.node-bkg, .stateGroup rect, rect.actor, .actor-man circle, rect.note, .statediagram-note rect, .state-note rect, .labelBox, .activation0, .activation1, .activation2, .entityBox) {
+  fill: var(--pi-surface) !important;
+  stroke: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.cluster rect, .statediagram-cluster rect, .statediagram-cluster .inner, .stateGroup .composit, .stateGroup .alt-composit) {
+  fill: var(--pi-paper) !important;
+  stroke: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.node .divider, .node line, .stateGroup line, .statediagram-state .divider) {
+  stroke: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .node.ink-focus :is(.label-container, .label-container > path, rect, circle, ellipse, polygon, path.node-bkg) {
+  fill: var(--pi-selected) !important;
+  stroke: var(--color-accent) !important;
+  stroke-width: 2px !important;
+}
+
+/* Older ink samples compiled their light beige classDef into inline
+ * fill:#e2d0b8 !important. CSS cannot replace that authored declaration.
+ * Pair this known legacy fill with dark ink so existing notes remain readable.
+ * New samples use only `class C ink-focus;`, allowing the theme to set paint.
+ */
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .node.ink-focus:has([style*="fill:#e2d0b8" i], [style*="fill: #e2d0b8" i]) {
+  --pi-diagram-ink: #49453c !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.edgeLabel, .edgeLabel p, .edgeLabel span, .labelBkg, .relationshipLabelBox) {
+  background-color: var(--pi-paper) !important;
+  opacity: 1 !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.edgeLabel rect, .edgeLabel .label rect, .label rect.background, rect.labelBkg, .relationshipLabelBox rect, .stateLabel .box) {
+  fill: var(--pi-paper) !important;
+  opacity: 1 !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.flowchart-link, .edgePath path, .transition, .relationshipLine, .relation, .messageLine0, .messageLine1, .actor-line, .actor-man line, .innerArc, .loopLine, .note-edge) {
+  stroke: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.flowchart-link, .edgePath path, .transition, .relationshipLine, .loopLine) {
+  fill: none !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.state-start, .start-state, .state-end, .fork-join) {
+  fill: var(--pi-diagram-edge) !important;
+  stroke: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .end-state-inner {
+  fill: var(--pi-paper) !important;
+  stroke: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker :is(path, circle, line, polygon) {
+  stroke: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker path {
+  fill: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker:is(.onlyOne, .zeroOrOne, .oneOrMore, .zeroOrMore, .cross) path {
+  fill: none !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker:is(.zeroOrOne, .zeroOrMore) circle {
+  fill: var(--pi-paper) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker[id*="-aggregation"] path, .mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker[id*="-extension"] path, .mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker[id*="-lollipop"] circle {
+  fill: var(--pi-paper) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker[id*="-composition"] path {
+  fill: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker[id*="-circle"] circle {
+  fill: var(--pi-paper) !important;
+}
+
+/* Obsidian prefixes every marker ID with the random diagram ID. Match raw
+ * Mermaid IDs AND their rewritten suffixes; exact IDs alone fail in the app.
+ * Number badges need contrasting text; the X arrowhead remains an open path. */
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker:is([id="sequencenumber"], [id$="-sequencenumber"]) circle {
+  fill: var(--color-accent) !important;
+  stroke: var(--color-accent) !important;
+}
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(text.sequenceNumber, text.sequenceNumber tspan) {
+  fill: var(--text-on-accent) !important;
+}
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) marker:is([id="crosshead"], [id$="-crosshead"]) path {
+  fill: none !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.task, .task0, .task1, .task2, .task3) {
+  fill: var(--pi-surface) !important;
+  stroke: var(--pi-diagram-edge) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.active, .active0, .active1, .active2, .active3) {
+  fill: var(--color-accent) !important;
+  stroke: var(--color-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.done, .done0, .done1, .done2, .done3) {
+  fill: var(--pi-green) !important;
+  stroke: var(--pi-green) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.crit0, .crit1, .crit2, .crit3, .activeCrit0, .activeCrit1, .activeCrit2, .activeCrit3, .doneCrit0, .doneCrit1, .doneCrit2, .doneCrit3) {
+  fill: var(--pi-red) !important;
+  stroke: var(--pi-red) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) text.taskText:is(.doneText0, .doneText1, .doneText2, .doneText3, .activeText0, .activeText1, .activeText2, .activeText3, .critText0, .critText1, .critText2, .critText3, .activeCritText0, .activeCritText1, .activeCritText2, .activeCritText3, .doneCritText0, .doneCritText1, .doneCritText2, .doneCritText3) {
+  fill: var(--text-on-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) text:is(.taskTextOutsideRight, .taskTextOutsideLeft) {
+  fill: var(--pi-diagram-ink) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :is(.section, .section0, .section1, .section2, .section3) {
+  fill: var(--pi-surface) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .exclude-range {
+  fill: var(--pi-surface) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .grid .tick line {
+  stroke: var(--pi-rule) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .today {
+  stroke: var(--color-accent) !important;
+  fill: none !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .pieCircle {
+  stroke: var(--pi-paper) !important;
+  opacity: 1 !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .pieOuterCircle {
+  stroke: var(--pi-diagram-edge) !important;
+  fill: none !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.pieCircle) :is(text.slice, text.slice tspan) {
+  fill: var(--text-on-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.pieCircle) :is(.pieCircle:nth-child(6n+1 of .pieCircle), .legend:nth-child(6n+1 of .legend) rect) {
+  fill: var(--pi-series-1) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.pieCircle) :is(.pieCircle:nth-child(6n+2 of .pieCircle), .legend:nth-child(6n+2 of .legend) rect) {
+  fill: var(--pi-series-2) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.pieCircle) :is(.pieCircle:nth-child(6n+3 of .pieCircle), .legend:nth-child(6n+3 of .legend) rect) {
+  fill: var(--pi-series-3) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.pieCircle) :is(.pieCircle:nth-child(6n+4 of .pieCircle), .legend:nth-child(6n+4 of .legend) rect) {
+  fill: var(--pi-series-4) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.pieCircle) :is(.pieCircle:nth-child(6n+5 of .pieCircle), .legend:nth-child(6n+5 of .legend) rect) {
+  fill: var(--pi-series-5) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.pieCircle) :is(.pieCircle:nth-child(6n+6 of .pieCircle), .legend:nth-child(6n+6 of .legend) rect) {
+  fill: var(--pi-series-6) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.plot) > .main > rect.background {
+  fill: var(--pi-paper) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.plot) :is(.left-axis, .right-axis, .bottom-axis, .top-axis) path {
+  stroke: var(--pi-diagram-edge) !important;
+  fill: none !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :where(.plot > [class^="bar-plot-"]) rect {
+  fill: var(--pi-series-1) !important;
+}
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :where(.plot > [class^="bar-plot-"]) :is(text, tspan) {
+  fill: var(--text-on-accent) !important;
+}
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) :where(.plot > [class^="line-plot-"]) path {
+  stroke: var(--pi-series-1) !important;
+  fill: none !important;
+}
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-0 rect {
+  fill: var(--pi-series-1) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-0 :is(text, tspan) {
+  fill: var(--text-on-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .line-plot-0 path {
+  stroke: var(--pi-series-1) !important;
+  fill: none !important;
+  stroke-width: 2.5px !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-1 rect {
+  fill: var(--pi-series-2) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-1 :is(text, tspan) {
+  fill: var(--text-on-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .line-plot-1 path {
+  stroke: var(--pi-series-2) !important;
+  fill: none !important;
+  stroke-width: 2.5px !important;
+  stroke-dasharray: 6 4 !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-2 rect {
+  fill: var(--pi-series-3) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-2 :is(text, tspan) {
+  fill: var(--text-on-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .line-plot-2 path {
+  stroke: var(--pi-series-3) !important;
+  fill: none !important;
+  stroke-width: 2.5px !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-3 rect {
+  fill: var(--pi-series-4) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-3 :is(text, tspan) {
+  fill: var(--text-on-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .line-plot-3 path {
+  stroke: var(--pi-series-4) !important;
+  fill: none !important;
+  stroke-width: 2.5px !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-4 rect {
+  fill: var(--pi-series-5) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-4 :is(text, tspan) {
+  fill: var(--text-on-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .line-plot-4 path {
+  stroke: var(--pi-series-5) !important;
+  fill: none !important;
+  stroke-width: 2.5px !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-5 rect {
+  fill: var(--pi-series-6) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .bar-plot-5 :is(text, tspan) {
+  fill: var(--text-on-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .line-plot-5 path {
+  stroke: var(--pi-series-6) !important;
+  fill: none !important;
+  stroke-width: 2.5px !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) {
+  --pi-mindmap-branch: var(--color-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-0, .section-edge-0) {
+  --pi-mindmap-branch: var(--pi-series-1) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-1, .section-edge-1) {
+  --pi-mindmap-branch: var(--pi-series-2) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-2, .section-edge-2) {
+  --pi-mindmap-branch: var(--pi-series-3) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-3, .section-edge-3) {
+  --pi-mindmap-branch: var(--pi-series-4) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-4, .section-edge-4) {
+  --pi-mindmap-branch: var(--pi-series-5) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-5, .section-edge-5) {
+  --pi-mindmap-branch: var(--pi-series-6) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-6, .section-edge-6) {
+  --pi-mindmap-branch: var(--pi-series-1) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-7, .section-edge-7) {
+  --pi-mindmap-branch: var(--pi-series-2) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-8, .section-edge-8) {
+  --pi-mindmap-branch: var(--pi-series-3) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-9, .section-edge-9) {
+  --pi-mindmap-branch: var(--pi-series-4) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-10, .section-edge-10) {
+  --pi-mindmap-branch: var(--pi-series-5) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) :is(.section-11, .section-edge-11) {
+  --pi-mindmap-branch: var(--pi-series-6) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .mindmap-node :is(.node-bkg, .label-container, .label-container > path, rect, circle, ellipse, polygon) {
+  fill: color-mix(in srgb, var(--pi-mindmap-branch) 14%, var(--pi-surface)) !important;
+  stroke: var(--pi-mindmap-branch) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .mindmap-node.section-root :is(.node-bkg, .label-container, .label-container > path, rect, circle, ellipse, polygon) {
+  fill: var(--pi-selected) !important;
+  stroke: var(--color-accent) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) .mindmap-node line {
+  stroke: var(--pi-mindmap-branch) !important;
+}
+
+.mermaid:not(#ink-original-diagram):not(.paper-original-diagrams .mermaid) svg:has(.mindmap-node) .edge {
+  stroke: var(--pi-mindmap-branch) !important;
+  fill: none !important;
+}

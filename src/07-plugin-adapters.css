@@ -1,0 +1,264 @@
+/* Excalidraw UI adapter, based on upstream theme.scss variables.
+ * Drawing strokes, text fonts, backgrounds and serialized files stay authored.
+ * Runtime verification in the Obsidian plugin has not been performed.
+ */
+body:is(.theme-light, .theme-dark) .excalidraw {
+  --color-primary: var(--color-accent);
+  --color-primary-darker: var(--color-accent-1);
+  --color-primary-darkest: var(--color-accent-2);
+  --color-primary-light: var(--pi-selected);
+  --color-primary-light-darker: var(--pi-selected);
+  --color-primary-hover: var(--color-accent-1);
+  --color-selection: var(--color-accent);
+  --focus-highlight-color: var(--color-accent);
+  --color-surface-high: var(--pi-selected);
+  --color-surface-mid: var(--pi-surface);
+  --color-surface-low: var(--pi-surface);
+  --color-surface-lowest: var(--pi-paper);
+  --color-on-surface: var(--pi-body);
+  --color-brand-hover: var(--color-accent-1);
+  --color-brand-active: var(--color-accent);
+  --color-on-primary-container: var(--pi-title);
+  --color-surface-primary-container: var(--pi-selected);
+  --color-border-outline: var(--pi-control-border);
+  --color-border-outline-variant: var(--pi-rule);
+  --default-bg-color: var(--pi-paper);
+  --input-bg-color: var(--pi-paper);
+  --input-border-color: var(--pi-control-border);
+  --input-hover-bg-color: var(--pi-surface);
+  --input-label-color: var(--pi-secondary);
+  --island-bg-color: var(--pi-raised);
+  --island-bg-color-alt: var(--pi-surface);
+  --popup-bg-color: var(--pi-raised);
+  --popup-secondary-bg-color: var(--pi-surface);
+  --popup-text-color: var(--pi-body);
+  --popup-text-inverted-color: var(--pi-paper);
+  --dialog-border-color: var(--pi-rule);
+  --sidebar-bg-color: var(--pi-raised);
+  --sidebar-border-color: var(--pi-rule);
+  --keybinding-color: var(--pi-secondary);
+  --link-color: var(--color-accent);
+  --link-color-hover: var(--color-accent-1);
+  --link-color-active: var(--color-accent);
+  --button-gray-1: var(--pi-surface);
+  --button-gray-2: var(--pi-rule);
+  --button-gray-3: var(--pi-control-border);
+  --shadow-island: var(--pi-shadow);
+  --shadow-island-stronger: var(--pi-shadow);
+  --text-primary-color: var(--pi-body);
+}
+.excalidraw :is(button, input, select) { font-family: var(--font-interface); }
+
+/* Optional Tasks results use the plugin's documented component spans.
+ * Keep completion dates and their underlying Markdown; style .task-done as
+ * quiet metadata rather than hiding it or clipping a presumed emoji prefix.
+ * These spans exist in Reading View and query blocks, not raw Live Preview
+ * task lines. No plugin settings, date tracking or handlers are changed.
+ */
+:is(.tasks-query-result, .plugin-tasks-query-result) {
+  font-family: var(--font-interface);
+  font-size: max(16px, 0.9474em);
+}
+:is(.tasks-query-result, .plugin-tasks-query-result) .tasks-backlink,
+:is(.tasks-query-result, .plugin-tasks-query-result) .tasks-postpone { color: var(--pi-secondary); }
+body .task-list-item:is([data-task="x"], [data-task="X"], [data-task-status-type="DONE"]) > .tasks-list-text {
+  color: var(--checklist-done-color);
+  text-decoration: var(--checklist-done-decoration);
+  opacity: 1;
+}
+body .task-list-item > .tasks-list-text > .task-done {
+  display: inline-block;
+  margin-inline-start: 0.4em;
+  padding: 0.08em 0.4em;
+  border: 1px solid var(--pi-rule);
+  border-radius: 3px;
+  background-color: var(--pi-surface);
+  color: var(--pi-secondary);
+  font-family: var(--font-interface);
+  font-size: max(14px, 0.8em);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+body .task-list-item > .tasks-list-text > .task-done > span {
+  display: inline-block;
+  filter: grayscale(1);
+}
+
+/* Mindmap NextGen settings. Upstream fixes the modal height to 85vh, including
+ * explanation-only pages. Native headings also add horizontal padding, and
+ * file/block rows reserve a leading .mmng-reset info slot. Keep every reset
+ * control, but place that slot beside the value instead of before the label.
+ * Size short pages to their content; long pages retain one scroll area with
+ * sticky tabs. All adjustments stay inside the plugin's named containers.
+ * Source: github.com/james-tindal/obsidian-mindmap-nextgen (styles.css).
+ * The local plugin runtime has not been visually verified.
+ */
+body .mmng-settings-modal .modal {
+  width: min(760px, calc(100vw - 48px));
+  max-width: calc(100vw - 32px);
+  height: auto;
+  max-height: var(--dialog-max-height);
+  padding: 0;
+  overflow: hidden;
+}
+body .mmng-settings-modal .modal-content {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  overflow-y: auto;
+}
+body .mmng-settings-modal .modal-close-button {
+  top: 12px;
+  right: 12px;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-level-selector {
+  padding: 18px 56px 16px 28px;
+  background-color: var(--pi-paper);
+  border-bottom: 1px solid var(--pi-rule);
+}
+body .mmng-settings-tab .mmng-level-selector { padding: 8px 28px 16px; }
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-level-selector .setting-item {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  flex-direction: row;
+}
+/* Obsidian's info wrapper can contain empty name/description elements, so
+ * :empty alone cannot remove its flex share and trailing margin. */
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-level-selector .setting-item-info {
+  flex: 0 1 auto;
+  margin: 0;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-level-selector .setting-item-info:empty {
+  display: none;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-level-selector .setting-item-control {
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-level-selector .setting-item .setting-item-control > button {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+  min-height: var(--input-height);
+  padding-inline: 16px;
+  border-radius: 5px;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-level-selector button.mmng-active {
+  background-color: var(--pi-selected);
+  color: var(--pi-title);
+  border-color: var(--color-accent);
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main {
+  padding: 16px 28px 32px;
+  container: ink-mmng-form / inline-size;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item {
+  padding: 16px 0;
+  gap: 16px;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item:first-child:not(.setting-item-heading) {
+  border-top: 0;
+  padding-top: 8px;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item-info {
+  margin-inline-end: 0;
+  min-width: 0;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item > .setting-item-info:not(.mmng-reset) {
+  order: 0;
+  flex: 1 1 auto;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item > .setting-item-info.mmng-reset {
+  order: 1;
+  flex: 0 0 auto;
+  margin: 0;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item > .setting-item-info.mmng-reset:empty {
+  display: none;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item-heading {
+  padding: 20px 0 10px;
+  margin: 8px 0 0;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main :is(h1, h2, h3, h4) {
+  padding-inline: 0;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item-description {
+  margin-top: 6px;
+  padding-top: 0;
+  line-height: 1.55;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item-control {
+  order: 2;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 50%;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item-control :is(input, select, button) {
+  max-width: 100%;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item.mmng-coloring-approach-description {
+  border-top: 0;
+  padding-top: 0;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-settings-level-explanation {
+  padding: 24px 28px 32px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-settings-level-explanation .clickable-icon {
+  display: inline-flex;
+  vertical-align: middle;
+}
+/* Inherited file/block settings stay visibly secondary without fading their
+ * names, descriptions and controls to unreadable 40% opacity. */
+body :is(.mmng-settings-modal, .mmng-settings-tab) .setting-item.mmng-faded {
+  opacity: 1;
+}
+body :is(.mmng-settings-modal, .mmng-settings-tab) .setting-item.mmng-faded .setting-item-name {
+  color: var(--pi-secondary);
+}
+/* Respond to a narrow settings pane even inside a wide desktop window.
+ * Reset and value stay in one trailing control row, after the full-width label.
+ * Tabs keep their intrinsic button width rather than native full-width buttons.
+ */
+@container ink-mmng-form (max-width: 440px) {
+  body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item:not(.setting-item-heading) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item:not(.setting-item-heading) > .setting-item-info:not(.mmng-reset) {
+    flex: 1 1 100%;
+  }
+  body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main .setting-item-control {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 100%;
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 600px) {
+  body .mmng-settings-modal .modal {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+  }
+  body .mmng-settings-modal .mmng-level-selector {
+    padding-inline: 18px 56px;
+  }
+  body .mmng-settings-tab .mmng-level-selector,
+  body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-main,
+  body :is(.mmng-settings-modal, .mmng-settings-tab) .mmng-settings-level-explanation {
+    padding-inline: 18px;
+  }
+}
