@@ -4,7 +4,8 @@
 2. Run `npm run build`, `npm run check` and `npm run package`.
 3. Test the changed scenes in real Obsidian and record the app/theme versions, view, OS and relevant plugins. Update the gallery with approved real-app screenshots.
 4. Commit the source and root `theme.css` together.
-5. Create a GitHub release whose tag is the exact manifest version, such as `1.3.8` (no `v` prefix). Upload root `manifest.json` and `theme.css` as separate release assets. The two ZIP files and `SHA256SUMS` in `dist/` can be offered as additional downloads.
-6. A community-directory listing is a separate submission through the Obsidian Community directory. It needs a published GitHub repository/release and an approved screenshot; it is not created by a local build.
+5. Create a GitHub release whose tag is the exact manifest version, such as `0.0.1` (no `v` prefix). Upload root `manifest.json` and `theme.css` as separate release assets. The two ZIP files and `SHA256SUMS` in `dist/` can be offered as additional downloads.
+6. Confirm that the repository and release are public. Verify downloads anonymously, check the attached asset hashes and confirm the theme ZIP contains exactly `ink/manifest.json` and `ink/theme.css`.
+7. A community-directory listing is a separate submission through the Obsidian Community directory. Sign in with an Obsidian account and link the owner's GitHub account before submitting. It needs a published repository/release and a suitable screenshot; it is not created by a local build. Do not claim in-app availability before directory approval.
 
 These steps follow [Obsidian's official theme submission guide](https://docs.obsidian.md/themes/app-themes/submit-theme). This repository's CI checks builds and packages; it does not automatically publish releases or submit the theme.

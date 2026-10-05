@@ -6,7 +6,7 @@ cssclasses:
 ---
 # ink 实际测试
 
-主题版本 **1.3.8** · Author **[ThreeAndTwo](https://github.com/ThreeAndTwo)**
+主题版本 **0.0.1** · Author **[ThreeAndTwo](https://github.com/ThreeAndTwo)**
 
 这里提供实际可打开、编辑和保存的场景文件。日期、人名、工时、项目均为测试数据。下面的清单供你实机验收，并不表示这些项目已经通过实机测试。
 

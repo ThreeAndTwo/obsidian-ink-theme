@@ -1,35 +1,39 @@
-# ink real screenshots / 实机截图
+# ink note screenshots / 笔记实机图
 
-[English README](../README.md) · [中文说明](../README.zh-CN.md)
+[English README](../README.md) · [中文说明](../README.zh-CN.md) · [Install / 安装](install.md)
 
-Only original user-provided screenshots of the actual Obsidian application are included here. The generated design mockups previously placed in the gallery have been removed from the repository and the README.
+The main images show real note content. All three files are unmodified screenshots supplied by ThreeAndTwo. None was generated or reconstructed. Their installed theme versions were not independently confirmed, so the screenshots are not labeled as current-release acceptance evidence.
 
-这里只展示作者提供的真实 Obsidian 原始截图。之前加入图册的生成设计图已从仓库和 README 移除。
+主展示改为笔记正文。三个文件均为 ThreeAndTwo 提供的原始截图，未重绘或生成。已安装主题版本未确认，不标为最新版验收图。
 
-## Dark settings and dropdown / 深色设置与下拉
+## Dark reading / 深色阅读
 
-![Original Obsidian dark settings screenshot with ink selected](screenshots/dark-settings.png)
+![Original dark English reading note](screenshots/dark-reading.png)
 
-Source: the author's newly supplied screenshot. The window title shows **Obsidian 1.13.7**, the selected theme is **ink**, and the appearance dropdown is open. The installed theme's exact version is not visible. This file is copied unchanged from the supplied image, without reconstruction or image generation.
+An original reading screenshot supplied during development, before the first public release. It shows English paragraphs, headings, properties, a quotation and the dotted background. Exact app/theme versions were not confirmed.
 
-来源：作者刚提供的实机截图。窗口标题可见 **Obsidian 1.13.7**，已选主题为 **ink**，外观下拉列表展开。截图没有显示主题文件的具体版本。图片按原始文件保存。
+开发阶段提供的原始深色阅读图，早于首次公开发布；可见英文正文、标题、属性、引用与点阵。应用和主题具体版本未确认。
 
-## Earlier dark English reading / 早期深色英文阅读
+## Light content — earlier version / 浅色内容：早期版本
 
-![Original earlier Obsidian reading screenshot](screenshots/dark-reading.png)
+![Original earlier light note content](screenshots/light-content-earlier.png)
 
-Source: the author's earlier reading screenshot, captured before the 1.3.8 inline-code change. The image shows actual reading content and the dotted background. Neither the exact Obsidian version nor the installed theme version was confirmed for this earlier capture. It is not labeled as a current-release acceptance screenshot.
+The available original light capture shows mixed text, a list, links and inline code. It was supplied during development and includes an earlier terracotta inline-code treatment; the release uses neutral inline code. It is historical evidence, not a current 0.0.1 preview. A fresh full reading capture is still needed.
 
-来源：作者之前提供的阅读实机图，早于 1.3.8 的行内代码修改。保留其实际正文与点阵表现；该图的 Obsidian 和主题具体版本均未确认，不作为最新版验收截图。
+现有浅色原图包含中英文、列表、链接与行内代码。它来自早期开发阶段，图中赭红行内代码与发布版的中性样式不同。这是历史截图，不代表 0.0.1 当前效果；完整新版浅色阅读图仍待拍摄。
 
-## Scenes awaiting real captures / 待拍场景
+## Supplement: dark settings / 附加：深色设置
 
-Light-mode reading and settings, Markdown emphasis, editing, Todo, tables, diagrams, Canvas, drawing, Bases, search, narrow panes and mobile layouts still need real screenshots. These sections will stay unillustrated until captures from the application are available.
+![Original Obsidian dark settings screenshot](screenshots/dark-settings.png)
 
-浅色阅读与设置、Markdown 强调、编辑、Todo、表格、图形、Canvas、绘图、Bases、搜索、窄分栏及移动端，待真实拍摄后补充。
+Obsidian **1.13.7** is visible in the title, and **ink** is selected. The installed theme version is not visible. This settings image is supplementary, not the main theme image.
 
-Use the bundled sample notes for captures. Record Obsidian/theme versions and relevant plugins; retain the actual output. A layout sketch or generated mockup is not a product screenshot.
+窗口标题可见 Obsidian **1.13.7**，已选 **ink**；没有显示主题具体版本。设置图只用于补充说明。
 
-截图使用仓库样例笔记，注明 Obsidian/主题版本及相关插件，并保留真实输出。
+## Current-version captures still needed / 新版待拍场景
 
-Original source filenames, dimensions and SHA-256 are recorded in [gallery-assets.json](gallery-assets.json). This records file provenance and integrity; it does not independently verify the installed application or theme files.
+Capture the same sample note in light and dark mode using ink 0.0.1, with the app/theme versions recorded. Add editing, Todo, tables, diagrams, Canvas, Bases and narrow-pane views after checking their actual output. The current computer-use tool reports that permission is not granted, so no new application capture was made for this documentation update.
+
+需以 ink 0.0.1 对同一篇样例笔记分别拍摄浅色和深色，记录应用和主题版本；再补编辑、Todo、表格、图形、Canvas、Bases 与窄分栏。当前实机操作工具返回未获权限，本次没有产生新的应用截图。
+
+Original filenames, dimensions and SHA-256 are recorded in [gallery-assets.json](gallery-assets.json). Hash checks preserve file integrity; they do not verify a running installation.

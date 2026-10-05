@@ -8,7 +8,7 @@ Install ink from the repository's root `manifest.json` and `theme.css`. Copy onl
 
 ## Separate vault
 
-Run `npm run package` from the repository root. Extract `dist/ink-tests-1.3.8.zip` and open its `ink 测试库` folder in Obsidian. That archive includes the current theme and sample settings. If you open this raw example folder instead, install the root theme files into its `.obsidian/themes/ink/` first.
+Run `npm run package` from the repository root. Extract `dist/ink-tests-0.0.1.zip` and open its `ink 测试库` folder in Obsidian. That archive includes the current theme and sample settings. If you open this raw example folder instead, install the root theme files into its `.obsidian/themes/ink/` first.
 
 The sample settings enable native Canvas and Bases. Community plugins are not installed. Tasks, Dataview, Excalidraw and Mindmap NextGen examples require the respective optional plugins.
 

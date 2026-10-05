@@ -1,44 +1,36 @@
 # Verification
 
-The repository contains the ink 1.3.8 source and compiled theme. The compiled CSS is byte-for-byte identical to the 1.3.8 distributable prepared before open-source packaging. Opening this repository does not change the theme's design or defaults.
+The first public release is **0.0.1**. Earlier development identifiers are not public releases and are not included in the release history. Resetting the version changes its metadata and version comment, not the theme's appearance.
 
-## Checks performed for 1.3.8
+## Automated checks
 
-- 135 file, variable, structure and default-palette checks passed during theme development.
-- Both supplied example-vault theme copies matched the main distributable.
-- The 24 numbered scenes, 34 Markdown files, 94 wiki links, 8 anchor targets, sample database, Canvas and Excalidraw data passed file/data checks.
-- Compared with 1.3.7, changes were limited to three inline-code color tokens, author-applied emphasis on code, and the version identifier.
-- Theme ZIP entries and SHA-256 were verified. These are source/data checks, not rendered-image measurements.
+`npm run check` checks theme and package versions, author metadata, the MIT notice, reproducible compiled CSS, release paths, documentation/image references, three original screenshot hashes, and example-vault data. The vault includes 24 numbered scenarios, 34 Markdown files, 94 wiki links and Canvas file/edge references.
 
-Default inline-code text/background contrast was calculated as 11.90:1 in light mode and 12.18:1 in dark mode. Highlighted code was 10.34:1 and 5.73:1 respectively. These are arithmetic over the CSS defaults; user color overrides, font rendering and subjective comfort were not measured.
+`npm run package` checks the theme archive contains exactly `ink/manifest.json` and `ink/theme.css`. It also checks the example-vault ZIP contains matching theme files. The package has no local workspace state or bundled community plugins. These checks inspect files and data; they do not render Obsidian.
 
-## Repository checks
+The compiled CSS is rebuilt from seven source modules. The version reset preserves the previous CSS declarations and changes only the version comment.
 
-`npm run check` verifies metadata/version consistency, the MIT notice, reproducible CSS output, safe release paths, documentation image references, and wiki links in the sample notes. `npm run package` additionally checks the two-file theme archive and matching theme files inside the test-vault archive. GitHub Actions uses the same commands.
+## Real screenshot boundaries
 
-The public repository does not bundle extracted Obsidian application code, third-party plugins or the private development harness. Its portable checks are a smaller set and should not be confused with the historical 135 checks.
+The gallery contains three unmodified originals supplied by ThreeAndTwo: dark reading, earlier light note content and supplementary dark settings. Source filenames, dimensions and SHA-256 are in [gallery-assets.json](gallery-assets.json). Generated mockups were removed from product presentation.
 
-## What remains unverified
+The reading images were supplied during development; their installed theme versions were not independently confirmed. The light image shows earlier terracotta inline code, while the release uses a neutral code treatment. The settings title shows Obsidian 1.13.7 and ink selected, but it does not show the installed theme version.
 
-A complete real Obsidian visual/interaction pass for 1.3.8 has not been completed. There are no newly captured 1.3.8 screenshots. The gallery contains user-provided original settings and reading screenshots. The exact installed ink version in either capture has not been verified. The reading screenshot predates 1.3.8.
+There are **no verified 0.0.1 runtime captures**. A complete visual/interaction pass and fresh paired light/dark screenshots remain pending. The native computer-use tool reported that permission was not granted. Original screenshots and code/package checks are not a substitute for a current real-app pass.
 
-Previous diagram grammar, layout arithmetic and plugin source checks remain historical evidence for unchanged code. They do not establish the current installed plugin DOM, glyph appearance or runtime correctness.
+## Runtime boundaries
 
-Tasks component styles cannot separately lay out completion metadata in raw Markdown Live Preview/Source lines. Completion dates and emoji are retained. Actual emoji appearance depends on Unicode and system font support.
+Tasks component styles cannot separately lay out completion metadata in raw Markdown Live Preview/Source lines. Completion dates and emoji remain in the note. OS-native menus, user font/color overrides and third-party plugin DOM changes can affect the actual result.
+
+## Installation and publication
+
+The installation package contains two files, with the MIT notice embedded in theme.css. The optional test-vault package includes the theme and sample notes. See [installation instructions](install.md).
+
+A public GitHub repository and a matching-version Release make manual downloads available. Availability in Obsidian's in-app community browser requires a separate directory submission and approval. Do not claim directory publication from a successful build or GitHub release.
 
 ## References
 
 - [Obsidian theme submission and release requirements](https://docs.obsidian.md/themes/app-themes/submit-theme)
 - [Tasks component styling and view boundaries](https://publish.obsidian.md/tasks/Advanced/Styling)
-- [Tasks date syntax](https://github.com/obsidian-tasks-group/obsidian-tasks/blob/main/docs/Getting%20Started/Dates.md)
-- [MDN: font-variant-emoji](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-emoji)
-- [GitHub checkout v6](https://github.com/actions/checkout/blob/v6/README.md)
-- [GitHub setup-node v6](https://github.com/actions/setup-node/blob/v6/README.md)
-
-## Screenshot correction — 2026-10-05
-
-Removed all 13 generated design mockups from the public repository, README and gallery after the author reported the mismatch with the installed theme. The gallery now contains only two original user-provided real Obsidian screenshots: the newly supplied dark settings window and the earlier dark English reading note.
-
-Image source filenames and SHA-256 are recorded in `gallery-assets.json`. The originals are not cropped, recolored, reconstructed or generated. The settings screenshot shows Obsidian 1.13.7 and ink selected; it does not show the installed theme version. Light mode and the other layouts remain pending real captures.
-
-The gallery correction changes documentation and screenshot checks only. The theme CSS and manifest are unchanged. Previous gallery/source packages containing generated mockups are superseded by the real-screenshot package.
+- [GitHub checkout](https://github.com/actions/checkout)
+- [GitHub setup-node](https://github.com/actions/setup-node)

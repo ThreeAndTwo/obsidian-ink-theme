@@ -4,24 +4,36 @@
 
 [English](README.md) · [MIT License](LICENSE) · [更新记录](CHANGELOG.md)
 
-![真实 Obsidian 深色设置截图，ink 已选中并展开外观下拉菜单](docs/screenshots/dark-settings.png)
+## 安装 ink
 
-*作者提供的原始实机截图。窗口标题可见 Obsidian 1.13.7，主题选择为 ink；截图未显示已安装主题的具体版本。*
+**[下载 ink 0.0.1 主题包](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.1/ink-0.0.1.zip)** · [发布页与单独文件](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.1) · [详细安装说明](docs/install.md)
 
-## 真实截图
+要求 Obsidian **1.8.0 或更高版本**；部分新图形语法和 Bases 功能取决于实际 Obsidian 版本。
 
-[查看实机图册](docs/gallery.md)：包括刚提供的深色设置窗口与早期英文阅读截图。图片保持原样，并注明可确认的版本信息。浅色及其他布局待实际拍摄后补充。
-
-## 安装
-
-要求 Obsidian **1.8.0 或更高版本**；部分新图形语法和 Bases 功能也取决于实际 Obsidian 版本。
-
-1. 下载本仓库根目录的 `manifest.json` 与 `theme.css`，或使用 [Releases](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases) 中已发布的主题包。
-2. 在笔记库内建立 `.obsidian/themes/ink/`，只放这两个文件。
-3. 在「设置 → 外观 → 主题」选择 **ink**，再选择浅色或深色。
+1. 下载并解压 `ink-0.0.1.zip`，得到 `ink` 文件夹，里面只有 `manifest.json` 与 `theme.css`。
+2. 将该文件夹放入笔记库的 `.obsidian/themes/`。最终路径必须是 `.obsidian/themes/ink/manifest.json` 与 `.obsidian/themes/ink/theme.css`。
+3. 在 Obsidian「设置 → 外观 → 主题」中选择 **ink**，再选择浅色或深色。
 4. 覆盖旧版后，重新选择主题或重启 Obsidian。
 
-仓库公开与进入 Obsidian 社区主题目录是两个步骤；手动安装不依赖社区目录。
+安装不需要克隆源码、运行构建命令或安装社区插件。另附可选的 [测试笔记库](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.1/ink-tests-0.0.1.zip)。
+
+**社区主题目录状态：** ink 尚未上架。审核通过前，请按上述步骤从 GitHub Release 手动安装；公开仓库和发布安装包不会自动使主题出现在 Obsidian 的社区主题搜索中。
+
+## 笔记内容：dark / light
+
+### Dark 深色阅读
+
+![真实 Obsidian 深色英文笔记正文与点阵](docs/screenshots/dark-reading.png)
+
+*ThreeAndTwo 在开发阶段提供的原始实机图，展示真实笔记内容；已安装主题的具体版本未确认，不作为 0.0.1 的验收图。*
+
+### Light 浅色内容：早期截图
+
+![真实 Obsidian 早期浅色混排笔记，包含列表、链接和行内代码](docs/screenshots/light-content-earlier.png)
+
+*这是早期开发阶段的实机图，未验证为 0.0.1。图中的赭红行内代码与发布版的中性样式不同；新版浅色阅读图仍待实机拍摄。*
+
+[完整图册与来源说明](docs/gallery.md)。设置窗口只作为附加说明，已退出主题主展示。图片未重绘，未用生成设计稿替代实机效果。
 
 ## 设计与设置
 
@@ -45,7 +57,7 @@
 
 [示例库说明](examples/ink-test-vault/README.md)。包括 24 个编号场景、34 个 Markdown，以及流程/时序/状态/ER 图、图表、思维导图、Roadmap、Todo、宽表、公式、Canvas、Bases 和可编辑绘图。
 
-已有库只复制 `examples/ink-test-vault/ink测试场景/`，保留文件夹名，然后打开 `ink-00 开始与验收清单.md`。独立库可以运行 `npm run package`，解压 `dist/ink-tests-1.3.8.zip` 后在 Obsidian 打开。
+已有库只复制 `examples/ink-test-vault/ink测试场景/`，保留文件夹名，然后打开 `ink-00 开始与验收清单.md`。独立测试直接下载并解压 [ink-tests-0.0.1.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.1/ink-tests-0.0.1.zip)，在 Obsidian 中将解压后的文件夹作为笔记库打开。
 
 测试内容为样例数据；Tasks、Dataview、Excalidraw 和 Mindmap NextGen 相关场景需要各自插件，仓库不捆绑社区插件。
 
@@ -61,7 +73,7 @@ npm run package
 
 修改 `src/` 后重建根目录 `theme.css`，源码和生成文件一起提交。打包结果位于 `dist/`，主题安装包严格只有 `manifest.json`、`theme.css`，另附独立测试包和 SHA-256。
 
-源码、默认配色和包检查不能等同于实机视觉验收；1.3.8 尚待完整实机检查。Tasks 原文日期、系统原生菜单、逻辑行折行提示与第三方图形的边界见 [英文说明](README.md#known-boundaries) 和 [验证说明](docs/verification.md)。
+源码、默认配色和包检查不能等同于实机视觉验收；0.0.1 尚待完整实机检查。Tasks 原文日期、系统原生菜单、逻辑行折行提示与第三方图形的边界见 [英文说明](README.md#known-boundaries) 和 [验证说明](docs/verification.md)。
 
 ## License
 
