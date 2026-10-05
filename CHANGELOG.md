@@ -8,7 +8,7 @@ First public release of ink by ThreeAndTwo, licensed under MIT.
 - Centered reading, system body fonts, serif page titles and a dotted current-line indicator.
 - Distinct links, bold text, highlights and neutral inline code.
 - Markdown, tasks, tables, callouts, diagrams, Canvas and Bases styles.
-- Two-file theme installation package and an optional sample vault.
+- Two-file theme installation package.
 - Original user-provided note screenshots with documented version boundaries.
 
-The public release history starts at 0.0.1. Development drafts are not listed as published releases.
+Release numbering starts at 0.0.1. Development drafts are not published versions. Repository cleanup does not change the released theme files or installation ZIP.

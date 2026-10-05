@@ -1,13 +1,9 @@
 .DS_Store
 Thumbs.db
-node_modules/
 dist/
-*.log
-__pycache__/
+node_modules/
 .env
 .env.*
-examples/ink-test-vault/.obsidian/workspace*.json
-examples/ink-test-vault/.obsidian/cache/
-examples/ink-test-vault/.obsidian/plugins/
-examples/ink-test-vault/.obsidian/themes/
-examples/ink-test-vault/.trash/
+*.log
+.obsidian/
+.trash/
