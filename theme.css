@@ -1,6 +1,6 @@
 /* ===== 01-foundations.css ===== */
 /*
- * ink 0.0.2 — an original Obsidian theme.
+ * ink 0.0.3 — an original Obsidian theme.
  * Warm editorial reading, based on the approved design studies.
  * MIT licensed. No remote fonts, scripts, telemetry, or dependencies.
  * Build: node build.cjs
@@ -1234,30 +1234,27 @@ body.theme-dark :is(select:not([multiple]):not([size]), .dropdown):where(:not(.a
   color: var(--checklist-done-color);
   opacity: 1;
 }
-/* MIT-authored task completion symbol, embedded to keep a two-file theme.
- * Only U+2705 is mapped: all letters, CJK, punctuation and unrelated emoji
- * retain the user's normal fonts. Both Unicode variation selectors map to
- * this monochrome outline. The Markdown emoji and date stay unchanged.
- * Scope includes raw Reading/Live Preview/Source tasks, so it does not depend
- * on the Tasks plugin adding .task-done spans. Inline code keeps its own font.
+/* MIT-authored monochrome task symbols, embedded for a two-file theme.
+ * The 15 documented Tasks signifiers and two query actions have distinct
+ * outlines. Letters, CJK, punctuation and other emoji keep normal fonts.
+ * Original Markdown, dates, plugin parsing and click handlers are unchanged.
+ * In raw task lines CSS cannot distinguish a signifier from the same character
+ * in the description; all occurrences of these 17 characters use the outline.
+ * Inline code preserves literal/code typography. Images are never recolored.
  */
 @font-face {
   font-family: "Ink Task Symbols";
-  src: url("data:font/woff;base64,d09GRgABAAAAAAPoAAoAAAAABXAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAABZAAAADMAAABg7pxtPWNtYXAAAAGgAAAARgAAAGwumzDhZ2x5ZgAAAfAAAAAmAAAAJhlfBBloZWFkAAAA9AAAADYAAAA2WgOkbGhoZWEAAAEsAAAAHwAAACQFxAI4aG10eAAAAZgAAAAGAAAABgL4AABsb2NhAAAB6AAAAAYAAAAGABMAAG1heHAAAAFMAAAAFgAAACAABAAIbmFtZQAAAhgAAAG0AAADEn8u8OFwb3N0AAADzAAAABoAAAAw1effMwABAAAAAQAAyJBkP18PPPUAAwPoAAAAAHwlsIAAAAAAfCWwgABQAHUCUgIXAAAAAwACAAAAAAAAeJxjYGRgYFb4b8HAwLSCIYAhjCmIASiCAhgBTesDAgB4nGNgZGBgYGJgYwDRIBYaAAABRAANAAB4nGNgZlrBOIGBlYFI0ABn2QMBA4M6qzors8J/CwYGZgWGEzA5xi9Me4CUAgMDAP4UBzAAAqgAAABQAAB4nGNgYGBmgGAZIGYFYhsgjxHMZ2FQANIsQAjkq7P+/w8hb/wByzMw8AGxARAzMfwDMRXAgv/4gYQGAwQwAjXAaQD+ownVAAAAAAAAABMAAAABAFAAdQJSAhcABQAAEzcXARcBUCqHAScq/q8BMSiMAUoo/oYAAAB4nH2SwWrbQBiEZxMnoYSYkkPpIZSlh5BcLNuQUJRegnsxJIdGIqdQ6iiLpFraNbtrgt8i5zxLnqXP0GOPHUkbsKHEwuy3/8w/u/oRgEP8hkD3+8R/xwLvuet4C3sYBN7GEc4C99Y8O9jH98C76OMu8AGG+BW4j894ZoLovePuK14CC0j8DbyFvvgYeBtfxHHg3ppnBx/Ej8C7OBI+8AF+iqfAfXwTfyZmsbJlXnh5kp3K8XB8LtPCKnWpH9JHM9Vzmc7cXCar+t5U7kbly2pm1xwxLY0jGOLRrbKuNFqOBsNN6XqayqsyU9qpC+mUkr5QUumsMq7UebOrlZwkidTG0zYovF+4OIrMgi1maVkyNo+qLiKqS48JDBZYwaJEjgKeEzhBhlOuY051jHNSSsVC8bmExgP3j+ybkuetOoNrKWFSjXtqFSs39OdYkmfs/n9GHFJeMzYTYoxwyw5LLlnTPGPEr2T4Ztc11ZTOK/Zk7NasKVyw4trzJd+yaNdGy9hj2nzN275qdatPmJxw1XT4kDZop+Q5teZ+EZ9mgt0phm9rg8uQcqrVxi0iJpfw/wA5LZP9eJxjYGLAD4DyjEycyfm5BTmpJakpABPwA84AAA==") format("woff");
+  src: url("data:font/woff;base64,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") format("woff");
   font-weight: 100 900;
   font-style: normal;
   font-display: block;
-  unicode-range: U+2705;
+  unicode-range: U+23E9, U+23EB, U+23EC, U+23F3, U+26D4, U+2705, U+274C, U+2795, U+1F194, U+1F3C1, U+1F4C5, U+1F4DD, U+1F501, U+1F53A, U+1F53C, U+1F53D, U+1F6EB;
 }
 .markdown-rendered .task-list-item {
   font-family: "Ink Task Symbols", var(--font-interface);
 }
 .markdown-source-view.mod-cm6 .cm-line.HyperMD-task-line {
   font-family: "Ink Task Symbols", var(--font-text);
-}
-.markdown-rendered .task-list-item:is([data-task="x"], [data-task="X"], [data-task-status-type="DONE"]) img.emoji,
-.markdown-source-view.mod-cm6 .HyperMD-task-line:is([data-task="x"], [data-task="X"]) img.hmd-emoji {
-  filter: grayscale(1);
 }
 input.task-list-item-checkbox {
   border-width: 1.5px;
@@ -1310,6 +1307,12 @@ body:is(.is-focused, .is-mobile) .markdown-source-view.mod-cm6 .cm-editor.cm-foc
 }
 .markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line {
   font-family: var(--font-monospace);
+}
+/* This must outrank the general Source-line rule above, which otherwise
+ * restores the OS emoji font. Source task text remains user-selected monospace.
+ */
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line.HyperMD-task-line {
+  font-family: "Ink Task Symbols", var(--font-monospace);
 }
 .markdown-source-view.mod-cm6:not(.is-live-preview) .cm-line.HyperMD-codeblock {
   font-size: inherit;
@@ -2088,42 +2091,91 @@ body:is(.theme-light, .theme-dark) .excalidraw {
 }
 .excalidraw :is(button, input, select) { font-family: var(--font-interface); }
 
-/* Optional Tasks results use the plugin's documented component spans.
- * Keep completion dates and their underlying Markdown; style .task-done as
- * quiet metadata rather than hiding it or clipping a presumed emoji prefix.
- * These spans exist in Reading View and query blocks, not raw Live Preview
- * task lines. No plugin settings, date tracking or handlers are changed.
+/* Tasks' documented Reading/query component spans: distinguish metadata
+ * from the sentence, while preserving clicks, hidden fields and short mode.
+ * Date badges can wrap between components. Recurrence/dependency values keep
+ * normal wrapping, including long IDs. Raw Live Preview has no such spans;
+ * its symbols are provided by the scoped font, without inventing metadata DOM.
  */
 :is(.tasks-query-result, .plugin-tasks-query-result) {
   font-family: var(--font-interface);
   font-size: max(16px, 0.9474em);
 }
-:is(.tasks-query-result, .plugin-tasks-query-result) .tasks-backlink,
-:is(.tasks-query-result, .plugin-tasks-query-result) .tasks-postpone { color: var(--pi-secondary); }
+:is(.tasks-query-result, .plugin-tasks-query-result) .tasks-backlink {
+  color: var(--pi-secondary);
+}
+body .task-list-item {
+  /* Small amber text needs more contrast on the date badge than on paper. */
+  --pi-task-attention: color-mix(in srgb, var(--pi-orange) 88%, var(--pi-title));
+}
 body .task-list-item:is([data-task="x"], [data-task="X"], [data-task-status-type="DONE"]) > .tasks-list-text {
   color: var(--checklist-done-color);
   text-decoration: var(--checklist-done-decoration);
   opacity: 1;
 }
-body .task-list-item > .tasks-list-text > .task-done {
-  display: inline-block;
-  margin-inline-start: 0.4em;
-  padding: 0.08em 0.4em;
-  border: 1px solid var(--pi-rule);
-  border-radius: 3px;
-  background-color: var(--pi-surface);
-  color: var(--pi-secondary);
+body .task-list-item > .tasks-list-text > :is(.task-created, .task-start, .task-scheduled, .task-due, .task-cancelled, .task-done, .task-recurring, .task-onCompletion, .task-id, .task-dependsOn, .task-priority) {
   font-family: "Ink Task Symbols", var(--font-interface);
   font-size: max(14px, 0.8em);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
+  color: var(--pi-secondary);
   line-height: 1.45;
-  white-space: nowrap;
   vertical-align: baseline;
 }
-body .task-list-item > .tasks-list-text > .task-done > span {
+body .task-list-item > .tasks-list-text > :is(.task-created, .task-start, .task-scheduled, .task-due, .task-cancelled, .task-done) {
   display: inline-block;
+  margin-inline-start: 0.35em;
+  padding: 0.08em 0.4em;
+  border: 1px solid var(--pi-rule);
+  border-radius: 3px;
+  background-color: var(--pi-surface);
+  white-space: nowrap;
+}
+body .task-list-item > .tasks-list-text > :is(.task-created, .task-start, .task-scheduled, .task-due, .task-cancelled, .task-done, .task-recurring, .task-onCompletion, .task-id, .task-dependsOn, .task-priority) > span {
   font-family: inherit;
+}
+body .task-list-item > .tasks-list-text > :is(.task-recurring, .task-onCompletion, .task-id, .task-dependsOn) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+/* Priority shapes remain distinct even without color. Only actionable
+ * urgency receives emphasis; historical done/cancelled dates stay quiet.
+ */
+body .task-list-item > .tasks-list-text > .task-priority {
+  font-size: 1em;
+  font-weight: 600;
+}
+body .task-list-item > .tasks-list-text > .task-priority[data-task-priority="highest"] { color: var(--pi-red); }
+body .task-list-item > .tasks-list-text > .task-priority[data-task-priority="high"] { color: var(--pi-task-attention); }
+body .task-list-item > .tasks-list-text > .task-priority[data-task-priority="medium"] { color: var(--pi-blue); }
+body .task-list-item > .tasks-list-text > .task-start { color: var(--pi-blue); }
+body .task-list-item > .tasks-list-text > .task-done { color: var(--pi-green); }
+body .task-list-item > .tasks-list-text > .task-due[data-task-due="today"] { color: var(--pi-task-attention); }
+body .task-list-item > .tasks-list-text > .task-due[data-task-due^="past-"] {
+  color: var(--pi-red);
+  border-color: currentColor;
+}
+body .task-list-item:is([data-task="x"], [data-task="X"], [data-task-status-type="DONE"], [data-task-status-type="CANCELLED"]) > .tasks-list-text > :is(.task-priority, .task-due, .task-start) {
+  color: var(--pi-secondary);
+  border-color: var(--pi-rule);
+}
+/* The plugin supplies emoji through ::after and sets a separate UI font.
+ * Override that font locally; retain the original controls and their handlers.
+ */
+body .task-list-item :is(.tasks-edit, .tasks-postpone) {
+  font-family: "Ink Task Symbols", var(--font-interface);
+  color: var(--pi-secondary);
+}
+body .task-list-item :is(.tasks-edit, .tasks-postpone):hover {
+  color: var(--color-accent);
+}
+/* Short mode contains icon-only fields; avoid six separate framed badges. */
+body .tasks-layout-short-mode .task-list-item > .tasks-list-text > :is(.task-created, .task-start, .task-scheduled, .task-due, .task-cancelled, .task-done) {
+  margin-inline-start: 0.15em;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  font-size: 1em;
 }
 
 /* Mindmap NextGen settings. Upstream fixes the modal height to 85vh, including

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.3 — 2026-10-06
+
+- Cover all 15 documented Tasks metadata symbols and its edit/postpone actions with distinct monochrome outlines.
+- Fix Source view overriding the task-symbol font while preserving the selected monospace font for text.
+- Remove the broad completed-task image filter so unrelated emoji images retain their authored appearance.
+- Style date metadata consistently, distinguish priority levels, and keep completed/cancelled urgency quiet.
+- Preserve short-mode query layout, long metadata wrapping, original task data and native click handlers.
+
 ## 0.0.2 — 2026-10-06
 
 - Replace the system-rendered green completion emoji in task lines with an embedded, monochrome check mark.
