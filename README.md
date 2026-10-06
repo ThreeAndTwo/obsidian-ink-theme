@@ -2,11 +2,11 @@
 
 A warm paper-inspired Obsidian theme by [ThreeAndTwo](https://github.com/ThreeAndTwo), available under the [MIT License](LICENSE).
 
-[中文说明](README.zh-CN.md) · [Release 0.0.1](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.1)
+[中文说明](README.zh-CN.md) · [Release 0.0.2](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.2)
 
 ## Install
 
-**[Download ink-0.0.1.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.1/ink-0.0.1.zip)**
+**[Download ink-0.0.2.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.2/ink-0.0.2.zip)**
 
 Requires Obsidian **1.8.0 or later**.
 
@@ -23,7 +23,7 @@ ink has not been listed in Obsidian's community theme browser. Manual installati
 
 ## Note content
 
-These are original screenshots supplied by ThreeAndTwo during development. Their exact installed theme versions were not confirmed; they are not verified 0.0.1 acceptance screenshots. No generated mockups are used.
+These are original screenshots supplied by ThreeAndTwo during development. Their exact installed theme versions were not confirmed; they are not verified 0.0.2 acceptance screenshots. No generated mockups are used.
 
 ### Dark
 
@@ -33,7 +33,7 @@ These are original screenshots supplied by ThreeAndTwo during development. Their
 
 ![Original earlier light Obsidian note with mixed text, a list and links](screenshots/light.png)
 
-The light image shows an earlier terracotta inline-code style. The release uses neutral inline code. Fresh paired light/dark captures for 0.0.1 are still pending.
+The light image shows an earlier terracotta inline-code style. The release uses neutral inline code. Fresh paired light/dark captures for 0.0.2 are still pending.
 
 ## Features
 
@@ -42,6 +42,7 @@ The light image shows an earlier terracotta inline-code style. The release uses 
 - Distinct links, bold text, highlights and neutral inline code.
 - A full-width dotted baseline for the current logical editing line.
 - Markdown, tasks, tables, callouts, diagrams, Canvas and Bases styles.
+- A monochrome completion mark for Tasks dates in reading and editing views; task data stays unchanged.
 - Optional [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) customization; the theme works without the plugin.
 
 The readable CSS source is `theme.css`. This repository contains the theme distribution, documentation and screenshots; development fixtures and internal verification tools are not needed for installation.

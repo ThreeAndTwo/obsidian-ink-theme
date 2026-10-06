@@ -1,6 +1,6 @@
 /* ===== 01-foundations.css ===== */
 /*
- * ink 0.0.1 — an original Obsidian theme.
+ * ink 0.0.2 — an original Obsidian theme.
  * Warm editorial reading, based on the approved design studies.
  * MIT licensed. No remote fonts, scripts, telemetry, or dependencies.
  * Build: node build.cjs
@@ -1234,15 +1234,26 @@ body.theme-dark :is(select:not([multiple]):not([size]), .dropdown):where(:not(.a
   color: var(--checklist-done-color);
   opacity: 1;
 }
-/* The checked box carries completion state; keep the sentence readable.
- * Request text presentation only where supported; no text is clipped or
- * replaced. The OS/font still determines which emoji have text glyphs.
+/* MIT-authored task completion symbol, embedded to keep a two-file theme.
+ * Only U+2705 is mapped: all letters, CJK, punctuation and unrelated emoji
+ * retain the user's normal fonts. Both Unicode variation selectors map to
+ * this monochrome outline. The Markdown emoji and date stay unchanged.
+ * Scope includes raw Reading/Live Preview/Source tasks, so it does not depend
+ * on the Tasks plugin adding .task-done spans. Inline code keeps its own font.
  */
-@supports (font-variant-emoji: text) {
-  .markdown-rendered .task-list-item:is([data-task="x"], [data-task="X"], [data-task-status-type="DONE"]),
-  .markdown-source-view.mod-cm6 .HyperMD-task-line:is([data-task="x"], [data-task="X"]) {
-    font-variant-emoji: text;
-  }
+@font-face {
+  font-family: "Ink Task Symbols";
+  src: url("data:font/woff;base64,d09GRgABAAAAAAPoAAoAAAAABXAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAABZAAAADMAAABg7pxtPWNtYXAAAAGgAAAARgAAAGwumzDhZ2x5ZgAAAfAAAAAmAAAAJhlfBBloZWFkAAAA9AAAADYAAAA2WgOkbGhoZWEAAAEsAAAAHwAAACQFxAI4aG10eAAAAZgAAAAGAAAABgL4AABsb2NhAAAB6AAAAAYAAAAGABMAAG1heHAAAAFMAAAAFgAAACAABAAIbmFtZQAAAhgAAAG0AAADEn8u8OFwb3N0AAADzAAAABoAAAAw1effMwABAAAAAQAAyJBkP18PPPUAAwPoAAAAAHwlsIAAAAAAfCWwgABQAHUCUgIXAAAAAwACAAAAAAAAeJxjYGRgYFb4b8HAwLSCIYAhjCmIASiCAhgBTesDAgB4nGNgZGBgYGJgYwDRIBYaAAABRAANAAB4nGNgZlrBOIGBlYFI0ABn2QMBA4M6qzors8J/CwYGZgWGEzA5xi9Me4CUAgMDAP4UBzAAAqgAAABQAAB4nGNgYGBmgGAZIGYFYhsgjxHMZ2FQANIsQAjkq7P+/w8hb/wByzMw8AGxARAzMfwDMRXAgv/4gYQGAwQwAjXAaQD+ownVAAAAAAAAABMAAAABAFAAdQJSAhcABQAAEzcXARcBUCqHAScq/q8BMSiMAUoo/oYAAAB4nH2SwWrbQBiEZxMnoYSYkkPpIZSlh5BcLNuQUJRegnsxJIdGIqdQ6iiLpFraNbtrgt8i5zxLnqXP0GOPHUkbsKHEwuy3/8w/u/oRgEP8hkD3+8R/xwLvuet4C3sYBN7GEc4C99Y8O9jH98C76OMu8AGG+BW4j894ZoLovePuK14CC0j8DbyFvvgYeBtfxHHg3ppnBx/Ej8C7OBI+8AF+iqfAfXwTfyZmsbJlXnh5kp3K8XB8LtPCKnWpH9JHM9Vzmc7cXCar+t5U7kbly2pm1xwxLY0jGOLRrbKuNFqOBsNN6XqayqsyU9qpC+mUkr5QUumsMq7UebOrlZwkidTG0zYovF+4OIrMgi1maVkyNo+qLiKqS48JDBZYwaJEjgKeEzhBhlOuY051jHNSSsVC8bmExgP3j+ybkuetOoNrKWFSjXtqFSs39OdYkmfs/n9GHFJeMzYTYoxwyw5LLlnTPGPEr2T4Ztc11ZTOK/Zk7NasKVyw4trzJd+yaNdGy9hj2nzN275qdatPmJxw1XT4kDZop+Q5teZ+EZ9mgt0phm9rg8uQcqrVxi0iJpfw/wA5LZP9eJxjYGLAD4DyjEycyfm5BTmpJakpABPwA84AAA==") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+2705;
+}
+.markdown-rendered .task-list-item {
+  font-family: "Ink Task Symbols", var(--font-interface);
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-task-line {
+  font-family: "Ink Task Symbols", var(--font-text);
 }
 .markdown-rendered .task-list-item:is([data-task="x"], [data-task="X"], [data-task-status-type="DONE"]) img.emoji,
 .markdown-source-view.mod-cm6 .HyperMD-task-line:is([data-task="x"], [data-task="X"]) img.hmd-emoji {
@@ -2102,7 +2113,7 @@ body .task-list-item > .tasks-list-text > .task-done {
   border-radius: 3px;
   background-color: var(--pi-surface);
   color: var(--pi-secondary);
-  font-family: var(--font-interface);
+  font-family: "Ink Task Symbols", var(--font-interface);
   font-size: max(14px, 0.8em);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -2112,7 +2123,7 @@ body .task-list-item > .tasks-list-text > .task-done {
 }
 body .task-list-item > .tasks-list-text > .task-done > span {
   display: inline-block;
-  filter: grayscale(1);
+  font-family: inherit;
 }
 
 /* Mindmap NextGen settings. Upstream fixes the modal height to 85vh, including

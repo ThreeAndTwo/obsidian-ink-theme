@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.2 — 2026-10-06
+
+- Replace the system-rendered green completion emoji in task lines with an embedded, monochrome check mark.
+- Apply the symbol in native Reading, Live Preview and Source tasks as well as Tasks query results.
+- Keep completion dates, original Markdown and normal body fonts intact. Installation remains two files.
+
 ## 0.0.1 — 2026-10-05
 
 First public release of ink by ThreeAndTwo, licensed under MIT.
