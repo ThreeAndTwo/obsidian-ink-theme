@@ -2,11 +2,11 @@
 
 A warm paper-inspired Obsidian theme by [ThreeAndTwo](https://github.com/ThreeAndTwo), available under the [MIT License](LICENSE).
 
-[中文说明](README.zh-CN.md) · [Release 0.0.3](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.3)
+[中文说明](README.zh-CN.md) · [Release 0.0.2](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.2)
 
 ## Install
 
-**[Download ink-0.0.3.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.3/ink-0.0.3.zip)**
+**[Download ink-0.0.2.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.2/ink-0.0.2.zip)**
 
 Requires Obsidian **1.8.0 or later**.
 
@@ -21,9 +21,11 @@ No build command, Node.js or community plugin is needed to install the theme. Yo
 
 ink has not been listed in Obsidian's community theme browser. Manual installation from this release is available. In-app search and installation require [community-directory submission and approval](https://docs.obsidian.md/themes/app-themes/submit-theme).
 
+Obsidian's community directory reads this repository's manifest and installs `manifest.json` and `theme.css` from the GitHub release with the matching tag. The directory and the manual download use the same version and files.
+
 ## Note content
 
-These are original screenshots supplied by ThreeAndTwo during development. Their exact installed theme versions were not confirmed; they are not verified 0.0.3 acceptance screenshots. No generated mockups are used.
+These are original screenshots supplied by ThreeAndTwo during development. Their exact installed theme versions were not confirmed; they are not verified 0.0.2 acceptance screenshots. No generated mockups are used.
 
 ### Dark
 
@@ -33,7 +35,7 @@ These are original screenshots supplied by ThreeAndTwo during development. Their
 
 ![Original earlier light Obsidian note with mixed text, a list and links](screenshots/light.png)
 
-The light image shows an earlier terracotta inline-code style. The release uses neutral inline code. Fresh paired light/dark captures for 0.0.3 are still pending.
+The light image shows an earlier terracotta inline-code style. The release uses neutral inline code. Fresh paired light/dark captures for 0.0.2 are still pending.
 
 ## Features
 

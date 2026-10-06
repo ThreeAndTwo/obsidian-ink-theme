@@ -2,11 +2,11 @@
 
 [ThreeAndTwo](https://github.com/ThreeAndTwo) 制作的 Obsidian 主题。浅色暖纸、深色暖灰，配合淡点阵和常规系统字体。使用 [MIT License](LICENSE)。
 
-[English](README.md) · [0.0.3 发布页](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.3)
+[English](README.md) · [0.0.2 发布页](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.2)
 
 ## 安装
 
-**[下载 ink-0.0.3.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.3/ink-0.0.3.zip)**
+**[下载 ink-0.0.2.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.2/ink-0.0.2.zip)**
 
 要求 Obsidian **1.8.0 或更高版本**。
 
@@ -21,9 +21,11 @@
 
 ink 尚未上架 Obsidian 社区主题搜索，当前可通过发布包手动安装。在应用内搜索并直接安装，需要[提交社区目录并通过审核](https://docs.obsidian.md/themes/app-themes/submit-theme)。
 
+Obsidian 社区目录读取本仓库的 manifest，并从版本号相同的 GitHub Release 安装 `manifest.json` 与 `theme.css`。社区安装与手动下载使用同一版本、同一份文件。
+
 ## 笔记内容
 
-以下均为 ThreeAndTwo 在开发阶段提供的原始实机截图。已安装主题版本未确认，不作为 0.0.3 的验收图；未使用生成设计稿。
+以下均为 ThreeAndTwo 在开发阶段提供的原始实机截图。已安装主题版本未确认，不作为 0.0.2 的验收图；未使用生成设计稿。
 
 ### Dark 深色
 
@@ -33,7 +35,7 @@ ink 尚未上架 Obsidian 社区主题搜索，当前可通过发布包手动安
 
 ![真实浅色 Obsidian 混排笔记、列表与链接](screenshots/light.png)
 
-浅色图中的赭红行内代码属于早期设计，发布版采用中性样式。0.0.3 的新版成对 light/dark 实机截图仍待补拍。
+浅色图中的赭红行内代码属于早期设计，发布版采用中性样式。0.0.2 的新版成对 light/dark 实机截图仍待补拍。
 
 ## 样式
 
