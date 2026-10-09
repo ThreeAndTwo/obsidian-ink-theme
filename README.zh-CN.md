@@ -23,6 +23,14 @@ ink 尚未上架 Obsidian 社区主题搜索，当前可通过发布包手动安
 
 Obsidian 社区目录读取本仓库的 manifest，并从版本号相同的 GitHub Release 安装 `manifest.json` 与 `theme.css`。社区安装与手动下载使用同一版本、同一份文件。
 
+### main 分支预览：尚未发布
+
+当前 `main` 分支新增普通正文的箭头连写：`->`、`<-`、`<->`、`-->`、`<--`、`<-->`。仅改变显示，保存和复制仍是 ASCII 原文；字母和中文沿用原有字体，行内代码、代码块及源码模式保留原字符。普通短横线和尖括号也会使用这一小型内嵌符号字体，不同格式的文字之间不会连写。
+
+试用时，用 main 分支的 [manifest.json](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/manifest.json) 和 [theme.css](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/theme.css) 覆盖已安装主题的两个文件，然后重新选择 ink 或重启 Obsidian。预览期间 manifest 仍为 `0.0.2`，已发布的 0.0.2 Release 保持原样。
+
+[语言学习标注示例](docs/language-learning.md) 提供可复制的箭头、对齐下划线、句法标签及带说明的箭头，使用 Obsidian 自带公式，无需 HTML 或社区插件。示例已用 Obsidian 内置 MathJax 在浏览器中检查，实机验收仍待完成。
+
 ## 笔记内容
 
 以下均为 ThreeAndTwo 在开发阶段提供的原始实机截图。已安装主题版本未确认，不作为 0.0.2 的验收图；未使用生成设计稿。
