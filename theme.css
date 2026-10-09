@@ -3095,3 +3095,31 @@ body :is(.mmng-settings-modal, .mmng-settings-tab) .setting-item.mmng-faded .set
     padding-inline: 18px;
   }
 }
+
+/* ===== 08-prose-arrows.css ===== */
+/* Original MIT punctuation-only arrow ligatures. No letter/CJK glyphs.
+ * Only display changes: saved text and copied text retain their ASCII source.
+ * Plain hyphen/angle signs share this small symbol face. Source/code/math,
+ * note titles, properties and application UI keep their existing fonts.
+ */
+@font-face {
+  font-family: "Ink Prose Arrows";
+  src: url("data:font/woff;base64,d09GRgABAAAAAAVkAAwAAAAAB0wAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHREVGAAAExAAAADEAAAA2A+EB8EdTVUIAAAT4AAAAaQAAAI4hNiXRT1MvMgAAAYwAAAAyAAAAYEflaAljbWFwAAAB2AAAAEQAAABcZOYBK2dseWYAAAIsAAAAtwAAAPJvJt8VaGVhZAAAARwAAAA2AAAANlq9pDhoaGVhAAABVAAAAB4AAAAkBn4C9GhtdHgAAAHAAAAAGAAAABgNegGQbG9jYQAAAhwAAAAQAAAAEACaAN5tYXhwAAABdAAAABgAAAAgAAkAEG5hbWUAAALkAAABrwAAAxLpKLH+cG9zdAAABJQAAAAwAAAATxEqU5IAAQAAAAEAAMGUqwJfDzz1AAMD6AAAAAB8JbCAAAAAAHwlsIAAMgBBAyoCFwAAAAMAAgAAAAAAAHicY2BkYGBW+G8BJFsYjBiMmLUYgCIogBUAQfsCegAAeJxjYGRgYGBn4GMA0QwMTAxoAAACkwAaeJxjYGZ6yDiBgZWBGMAIxAowjj0QACldxSnMCv8tGBiYFRhOwBV+YdoDVssCABBmB5gAAAOEAAABaAAyAlgAUAJYAFoDhABaAFoAWnicY2BgYGJgYGAGYhEgyQimWRg8gDQfAwdQjo1Bl8GGwU5xguIkxSn//wPFUfj/r/w/9v/ovdJ7RfeKwLqRAACBUhNoAAAAAAANAB8AMQBGAFwAeXicVc4hDoMwFAbg98oaMFMVNTNNQ9qQKZKtGoEG3RvsAHg8R+AQO0Q1N0DOcQMymrUDsen3/f//AKFEhnesIQFg4iZKPPk3shIQWqjQEw40XHJFqXliI32Hg8Sr08uig7FQkWw3hud5Sq3EwXcSm0cUDr6mTQqSQRYXUm5UyoUl/STXVU5bj2zU86zHf4kiOqNEUmwHJT3WB/2x59Aa3VFslF2lIxcXI257ufBsSOy5UcMHRQI8WwB4nH2SwUorMRiFT7QqIhZxcbkLkeBCdNNpC8plvJtSNwUFtYMrEWUMM6PTpCQpxbdw7bP4LD6DS5eezkSsIDaU+f7/nJxkfgbAJl4hUP+2+a9ZYINVzQtYQSvwIrZwELgx51nCGs4DL6OJq8DraOM+cBM7eGaCaKyy+o+XwAIS74EX0BR/Ay/in9gN3JjzLOGPuA68jC3hA6/jRjwFbuJYvPXN+NEWWe7lXrovu+3uoUxyq1RP3yVTM9AP8swap2TPWjN1FyqblLd2zhHTUjlqQ9y5VNYVRstOq/1dOh0k8qRIlXbqSDqlpM+VVDotjSt0NqtGSvaHQ6mNp62Vez92cRSZMbeYiWXL2Cwq64hoVHj0YTDGIywKZMjhOYE9pNjns8updnFISqhYKK4eNO5YT7lvQH6gekbNwFGV1G1VTVlfsJNhghK37P2cEYeUr4z5hBgdXLJnyQV7mid0+JW0f911SjWh84R7Umq6chyx46rzJd8yr54zLeX9TJWvedtPbVTpfQy5JBXDfp3WqqbkObXZ/SKu2QTrUwzf1gaXIWVUy2+3iJhcwH8Al2KUPwB4nGNgYsAP2IFYgEGeQZGRiZGZkYUrsagovzwoMz2jhBPM9ElNg7Kc8ksyAMboDBl4nGNgZIAAHiDmYmBmEAFCGQZGIIuFgZWBDchiYWBkPMTABGRzAVk6DIxMEQAdmQHWAAAAeJxjYGRgYOBiUGEwYmBycfMJYeDLSSzJY+BjYAGKM/z/zwCSZ8zJTE9k4ACxwJgFLMsIFGFk8GBgAuqXA5JsYF3MQDFmIM0EJrkYRBhkgKazAdmMYBk2qApWMM0IpJnANIhkAgB2bAhIAAAA") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+002D, U+003C, U+003E, U+2190, U+2192, U+2194;
+}
+/* Scope to ordinary prose only; never replace the user's whole text font. */
+body:not(.pi-plain-prose-arrows) .markdown-rendered :is(p, li, td):where(:not(.task-list-item *, .metadata-container *, .frontmatter *, .mermaid *, .math *, .MathJax *, .katex *, pre *)) {
+  font-family: "Ink Prose Arrows", var(--font-text);
+}
+body:not(.pi-plain-prose-arrows) .markdown-rendered th:where(:not(.metadata-container *, .frontmatter *, .mermaid *, .math *, .MathJax *, .katex *, pre *)) {
+  font-family: "Ink Prose Arrows", var(--table-header-font);
+}
+body:not(.pi-plain-prose-arrows) .markdown-rendered .task-list-item {
+  font-family: "Ink Prose Arrows", "Ink Task Symbols", var(--font-interface);
+}
+body:not(.pi-plain-prose-arrows) .markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.HyperMD-codeblock, .HyperMD-header, .HyperMD-frontmatter) {
+  font-family: "Ink Prose Arrows", "Ink Task Symbols", var(--font-text);
+}

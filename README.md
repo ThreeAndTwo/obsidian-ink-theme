@@ -23,6 +23,14 @@ ink has not been listed in Obsidian's community theme browser. Manual installati
 
 Obsidian's community directory reads this repository's manifest and installs `manifest.json` and `theme.css` from the GitHub release with the matching tag. The directory and the manual download use the same version and files.
 
+### Main branch preview — unreleased
+
+The current `main` branch adds arrow ligatures in ordinary prose: `->`, `<-`, `<->`, `-->`, `<--` and `<-->`. This only changes their appearance; saved and copied text remains ASCII. Letters and CJK text keep their existing fonts. Inline code, code blocks and Source mode keep the original characters. Ordinary hyphens and angle brackets also use the small embedded symbol font, and ligatures do not span differently styled text.
+
+To try these changes, replace your installed theme's two files with the current [manifest.json](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/manifest.json) and [theme.css](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/theme.css), then reselect ink or restart Obsidian. The manifest remains at `0.0.2` during this preview; the published 0.0.2 release is unchanged.
+
+[Language-learning examples](docs/language-learning.md) include copyable arrows, aligned underlines, grammar labels and annotated arrows using Obsidian's built-in math. No HTML or community plugin is required. These examples have been checked in a browser with Obsidian's bundled MathJax; real-app acceptance remains pending.
+
 ## Note content
 
 These are original screenshots supplied by ThreeAndTwo during development. Their exact installed theme versions were not confirmed; they are not verified 0.0.2 acceptance screenshots. No generated mockups are used.
