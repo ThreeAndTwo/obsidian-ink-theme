@@ -2,15 +2,17 @@
 
 [ThreeAndTwo](https://github.com/ThreeAndTwo) 制作的 Obsidian 主题。浅色暖纸、深色暖灰，配合淡点阵和常规系统字体。使用 [MIT License](LICENSE)。
 
-[English](README.md) · [0.0.2 发布页](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.2)
+[English](README.md) · [当前源码 0.0.3](https://github.com/ThreeAndTwo/obsidian-ink-theme/tree/main)
 
 ## 安装
 
-**[下载 ink-0.0.2.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.2/ink-0.0.2.zip)**
+当前源码版本为 **0.0.3**。安装这次更新时，下载 main 的 [manifest.json](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/manifest.json) 与 [theme.css](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/theme.css)，并保留仓库许可说明。
+
+已有发布包：[ink-0.0.2.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.2/ink-0.0.2.zip)，这个旧包仍是此前的外观。
 
 要求 Obsidian **1.8.0 或更高版本**。
 
-1. 下载并解压主题包，得到 `ink` 文件夹，里面只有 `manifest.json` 与 `theme.css`。
+1. 创建 `ink` 文件夹，放入当前 `manifest.json` 与 `theme.css`，并保留相关许可说明。
 2. 将 `ink` 放入笔记库的 `.obsidian/themes/`。最终路径必须是 `.obsidian/themes/ink/manifest.json` 与 `.obsidian/themes/ink/theme.css`。
 3. 在 Obsidian「设置 → 外观 → 主题」中选择 **ink**，再选择浅色或深色。
 4. 更新已有安装时，覆盖这两个文件，然后重新选择主题或重启 Obsidian。
@@ -23,13 +25,15 @@ ink 尚未上架 Obsidian 社区主题搜索，当前可通过发布包手动安
 
 Obsidian 社区目录读取本仓库的 manifest，并从版本号相同的 GitHub Release 安装 `manifest.json` 与 `theme.css`。社区安装与手动下载使用同一版本、同一份文件。
 
-### main 分支预览：尚未发布
+## 配色与阅读
 
-当前 `main` 分支新增普通正文的箭头连写：`->`、`<-`、`<->`、`-->`、`<--`、`<-->`。仅改变显示，保存和复制仍是 ASCII 原文；字母和中文沿用原有字体，行内代码、代码块及源码模式保留原字符。普通短横线和尖括号也会使用这一小型内嵌符号字体，不同格式的文字之间不会连写。
+默认“INK 经典（自动明暗）”：浅色竹影纸面与暖深墨组成一对，笔记以墨青、赭石和墨灰协调。H1–H6 同时靠字号、字重、间距区分；引用、重点、链接、高亮、行内代码一并调色。
 
-试用时，用 main 分支的 [manifest.json](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/manifest.json) 和 [theme.css](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/theme.css) 覆盖已安装主题的两个文件，然后重新选择 ink 或重启 Obsidian。预览期间 manifest 仍为 `0.0.2`，已发布的 0.0.2 Release 保持原样。
+启用可选的 Style Settings 后，在 **INK → 外观 → 配色** 中选择经典、中性灰、原色、竹影、胭脂或天青。全部在同一份 CSS 内。已有配色 ID 保留；此前选过其他项时，选一次经典即可。未使用该插件时默认经典。Obsidian 的“基础颜色”控制浅色、深色或跟随系统。
 
-[语言学习标注示例](docs/language-learning.md) 提供可复制的箭头、对齐下划线、句法标签及带说明的箭头，使用 Obsidian 自带公式，无需 HTML 或社区插件。示例已用 Obsidian 内置 MathJax 在浏览器中检查，实机验收仍待完成。
+轻面板外壳与文件夹展开动画保留原生导航及减少动态效果设置。[原生页边批注](docs/MARGIN-NOTES.zh-CN.md) 与 [批注样式](docs/COMMENT-UI.md) 已包含；词语关联、交互和保存由 [INK Annotator](https://github.com/ThreeAndTwo/ink-annotator) 提供。
+
+正文箭头连写与 [语言学习标注示例](docs/language-learning.md) 保留。箭头只改变显示，存储原文保持。
 
 ## 笔记内容
 
@@ -59,10 +63,12 @@ Obsidian 社区目录读取本仓库的 manifest，并从版本号相同的 GitH
 
 ## 使用边界与反馈
 
-系统原生菜单、自定义字体/颜色和第三方插件会影响实际表现。Todo 的日期和 emoji 保留在笔记中。17 种任务符号用在任务描述里时也会显示为单色；普通段落与其他 emoji 的字体保持原样。原始编辑行没有插件的元数据元素，因此日期徽标与优先级配色用于阅读视图和查询结果。图形和 Bases 功能取决于实际 Obsidian 版本。当前版本尚未完成全面实机视觉验收。
+系统原生菜单、自定义字体/颜色和第三方插件会影响实际表现。Todo 的日期和 emoji 保留在笔记中。17 种任务符号用在任务描述里时也会显示为单色；普通段落与其他 emoji 的字体保持原样。原始编辑行没有插件的元数据元素，因此日期徽标与优先级配色用于阅读视图和查询结果。图形和 Bases 功能取决于实际 Obsidian 版本。本地桌面试用效果已由使用者确认；不代表所有设备和插件组合均已验收。
 
 遇到问题请在 [Issues](https://github.com/ThreeAndTwo/obsidian-ink-theme/issues) 提供 Obsidian/ink 版本、视图、浅色/深色模式和真实截图。
 
 ## License
 
 [MIT](LICENSE) © 2026 ThreeAndTwo。主题 CSS 内也包含许可声明。
+
+Lucide 图标与 Bamboo China 源配色许可见 `licenses/`。外壳、阅读和动画改动在本主题中实现；Codex 与 Cupertino 仅作为设计参考。

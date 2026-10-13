@@ -2,15 +2,17 @@
 
 A warm paper-inspired Obsidian theme by [ThreeAndTwo](https://github.com/ThreeAndTwo), available under the [MIT License](LICENSE).
 
-[中文说明](README.zh-CN.md) · [Release 0.0.2](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/tag/0.0.2)
+[中文说明](README.zh-CN.md) · [Current source 0.0.3](https://github.com/ThreeAndTwo/obsidian-ink-theme/tree/main)
 
 ## Install
 
-**[Download ink-0.0.2.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.2/ink-0.0.2.zip)**
+The current source version is **0.0.3**. Install it with [manifest.json](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/manifest.json) and [theme.css](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/theme.css) from main, keeping the repository license notices.
+
+Earlier packaged release: [ink-0.0.2.zip](https://github.com/ThreeAndTwo/obsidian-ink-theme/releases/download/0.0.2/ink-0.0.2.zip). That archive retains the earlier appearance.
 
 Requires Obsidian **1.8.0 or later**.
 
-1. Download and extract the theme ZIP. Its `ink` folder contains only `manifest.json` and `theme.css`.
+1. Create an `ink` folder containing the current `manifest.json` and `theme.css`; keep the license notices with it.
 2. Put that folder in your vault's `.obsidian/themes/` directory. The final paths must be `.obsidian/themes/ink/manifest.json` and `.obsidian/themes/ink/theme.css`.
 3. In Obsidian, open **Settings → Appearance → Themes**, select **ink**, and choose light or dark mode.
 4. When updating an existing installation, replace those two files and reselect the theme or restart Obsidian.
@@ -23,13 +25,15 @@ ink has not been listed in Obsidian's community theme browser. Manual installati
 
 Obsidian's community directory reads this repository's manifest and installs `manifest.json` and `theme.css` from the GitHub release with the matching tag. The directory and the manual download use the same version and files.
 
-### Main branch preview — unreleased
+## Palettes and reading
 
-The current `main` branch adds arrow ligatures in ordinary prose: `->`, `<-`, `<->`, `-->`, `<--` and `<-->`. This only changes their appearance; saved and copied text remains ASCII. Letters and CJK text keep their existing fonts. Inline code, code blocks and Source mode keep the original characters. Ordinary hyphens and angle brackets also use the small embedded symbol font, and ligatures do not span differently styled text.
+Classic is the default: a light bamboo-inspired paper palette and warm dark ink, with coordinated deep teal, clay and graphite note colors. Heading sizes, weights and spacing distinguish H1–H6 independently of color. Quotes, emphasis, links, highlights and inline code use the same palette relationships.
 
-To try these changes, replace your installed theme's two files with the current [manifest.json](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/manifest.json) and [theme.css](https://raw.githubusercontent.com/ThreeAndTwo/obsidian-ink-theme/main/theme.css), then reselect ink or restart Obsidian. The manifest remains at `0.0.2` during this preview; the published 0.0.2 release is unchanged.
+With the optional Style Settings plugin, use **INK → Appearance → Color palette**. Classic, Neutral, Original, Bamboo, Yanzhi and Tianqing are in one CSS file. Existing choices retain their IDs; select Classic once if you previously chose another option. Without Style Settings, Classic is automatic. Obsidian's Base color chooses light, dark or Follow system.
 
-[Language-learning examples](docs/language-learning.md) include copyable arrows, aligned underlines, grammar labels and annotated arrows using Obsidian's built-in math. No HTML or community plugin is required. These examples have been checked in a browser with Obsidian's bundled MathJax; real-app acceptance remains pending.
+The soft shell and folder disclosure animation preserve native navigation and reduced-motion behavior. [Native margin notes](docs/MARGIN-NOTES.zh-CN.md) and [comment presentation](docs/COMMENT-UI.md) are included; [INK Annotator](https://github.com/ThreeAndTwo/ink-annotator) provides anchored comment interaction and saved edits.
+
+Prose arrow ligatures and [language-learning examples](docs/language-learning.md) remain available. The ligatures only affect display; stored text stays unchanged.
 
 ## Note content
 
@@ -59,10 +63,12 @@ The readable CSS source is `theme.css`. This repository contains the theme distr
 
 ## Boundaries and feedback
 
-OS-native menus, user fonts/colors and third-party plugins can affect the result. Task dates and emoji remain in the note. The 17 supported task symbols also change when used inside a task description; ordinary paragraphs and unrelated emoji keep their fonts. Raw editing views lack the plugin's metadata spans, so component badges and priority colors apply to Reading/query results. Diagram and Bases features depend on the installed Obsidian version. A complete current-version real-app visual pass remains pending.
+OS-native menus, user fonts/colors and third-party plugins can affect the result. Task dates and emoji remain in the note. The 17 supported task symbols also change when used inside a task description; ordinary paragraphs and unrelated emoji keep their fonts. Raw editing views lack the plugin's metadata spans, so component badges and priority colors apply to Reading/query results. Diagram and Bases features depend on the installed Obsidian version. The owner accepted the local desktop appearance; a complete device and plugin matrix is not claimed.
 
 Report problems in [Issues](https://github.com/ThreeAndTwo/obsidian-ink-theme/issues) with the Obsidian/ink versions, view, light/dark mode and a real screenshot.
 
 ## License
 
 [MIT](LICENSE) © 2026 ThreeAndTwo. The distributable `theme.css` also contains the license notice.
+
+Lucide icon and Bamboo China source-palette notices are included in `licenses/`. Workspace, reading and motion changes are implemented in this theme; Codex and Cupertino were design references only.
