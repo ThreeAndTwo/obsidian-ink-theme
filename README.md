@@ -65,7 +65,7 @@ The readable CSS source is `theme.css`. This repository contains the theme distr
 
 OS-native menus, user fonts/colors and third-party plugins can affect the result. Task dates and emoji remain in the note. The 17 supported task symbols also change when used inside a task description; ordinary paragraphs and unrelated emoji keep their fonts. Raw editing views lack the plugin's metadata spans, so component badges and priority colors apply to Reading/query results. Diagram and Bases features depend on the installed Obsidian version. The owner accepted the local desktop appearance; a complete device and plugin matrix is not claimed.
 
-Report problems in [Issues](https://github.com/ThreeAndTwo/obsidian-ink-theme/issues) with the Obsidian/ink versions, view, light/dark mode and a real screenshot.
+Report problems in [Issues](https://github.com/ThreeAndTwo/obsidian-ink-theme/issues) with your Obsidian/ink versions, operating system, view, light/dark mode and a real screenshot. Include a small example note or diagram, steps to reproduce, the expected and actual results, and relevant plugins, CSS snippets or font overrides.
 
 ## License
 

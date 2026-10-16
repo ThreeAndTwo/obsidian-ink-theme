@@ -65,7 +65,7 @@ Obsidian 社区目录读取本仓库的 manifest，并从版本号相同的 GitH
 
 系统原生菜单、自定义字体/颜色和第三方插件会影响实际表现。Todo 的日期和 emoji 保留在笔记中。17 种任务符号用在任务描述里时也会显示为单色；普通段落与其他 emoji 的字体保持原样。原始编辑行没有插件的元数据元素，因此日期徽标与优先级配色用于阅读视图和查询结果。图形和 Bases 功能取决于实际 Obsidian 版本。本地桌面试用效果已由使用者确认；不代表所有设备和插件组合均已验收。
 
-遇到问题请在 [Issues](https://github.com/ThreeAndTwo/obsidian-ink-theme/issues) 提供 Obsidian/ink 版本、视图、浅色/深色模式和真实截图。
+遇到问题请在 [Issues](https://github.com/ThreeAndTwo/obsidian-ink-theme/issues) 提供 Obsidian/ink 版本、操作系统、视图、浅色/深色模式和真实截图。同时附上可复现问题的小段笔记或图表、操作步骤、预期与实际表现，以及相关插件、CSS 片段或自定义字体。
 
 ## License
 
